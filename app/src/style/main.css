@@ -1,0 +1,61 @@
+.content-wrapper {
+    padding: 2.5rem;
+}
+
+.content-item {
+    padding-block: 1.125rem;
+
+    display: flex;
+    gap: 1.125rem;
+
+    border-bottom: 1px solid var(--clr-neutral-200);
+}
+
+.image {
+    height: 10.5rem;
+
+    width: 8rem;
+    border-radius: 5px;
+}
+
+.country-wrapper {
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.country {
+    font-weight: var(--fw-regular);
+    font-size: var(--fs-300);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.google-link {
+    padding-left: 0.5rem;
+    font-weight: var(--fw-regular);
+    font-size: var(--fs-300);
+    color: var(--clr-neutral-400);
+}
+
+.location-name {
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-600);
+    color: var(--clr-neutral-900);
+    margin-bottom: 1rem;
+}
+
+.visit-date {
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-300);
+    color: var(--clr-neutral-900);
+
+    margin-bottom: 0.625rem;
+}
+
+.description {
+    font-weight: var(--fw-regular);
+    font-size: var(--fs-300);
+    color: var(--clr-neutral-900);
+}
