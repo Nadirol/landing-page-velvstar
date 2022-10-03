@@ -5,9 +5,12 @@ function Header() {
     return (
         <header className="primary-header">
                 <div className="container">
-                    <nav className="primary-navigation-wrapper">
+                    <nav className="primary-navigation">
+                        <button className="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
+                            <span className="visually-hidden">Menu</span>
+                        </button>
                         <img src={process.env.PUBLIC_URL + "/images/Type=logo-purple.png"} alt="" className="brand-logo"/>
-                        <ul className="nav-list" role="list">
+                        <ul className="nav-list" role="list" id="primary-navigation">
                             <li className="nav-item">
                                 <a href="#">Home</a>
                             </li>
