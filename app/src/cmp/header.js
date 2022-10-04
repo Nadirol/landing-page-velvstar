@@ -6,37 +6,38 @@ function Header() {
         <header className="primary-header">
                 <div className="container">
                     <nav className="primary-navigation">
-                        <button className="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
+                        <button className="mobile-nav-toggle | mobile-only" aria-controls="primary-navigation__menu" aria-expanded="false">
                             <span className="visually-hidden">Menu</span>
                         </button>
-                        <img src={process.env.PUBLIC_URL + "/images/Type=logo-purple.png"} alt="" className="brand-logo"/>
-                        <ul className="nav-list" role="list" id="primary-navigation">
-                            <li className="nav-item">
-                                <a href="#">Home</a>
-                            </li>
-                            <li className="nav-item">
-                                <a href="#services">Services</a>
-                            </li>
-                            <li className="nav-item">
-                                <a href="#results">Result</a>
-                            </li>
-                        </ul>
-                        <button className="button-primary">
-                            <a href="#contact">Contact Us</a>
-                        </button>
+                        <a href="index.html">
+                            <img src={process.env.PUBLIC_URL + "/images/Type=logo-purple.png"} alt="" className="brand-logo"/>
+                        </a>
+                        <div className="nav-menu" id="primary-navigation__menu">
+                            <ul className="nav-list">
+                                <li className="nav-item">
+                                    <a className="nav-link | ff-primary title-normal__semi-bold" href="index.html">Home</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link | ff-primary title-normal__semi-bold" href="#services">Services</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link | ff-primary title-normal__semi-bold" href="#results">Result</a>
+                                </li>
+                            </ul>
+                            <a className="button-primary primary-navigation__button | ff-primary button-small text-center" href="#contact">Contact Us</a>
+                        </div>
                     </nav>
-                    <div className="header-content">
-                        <h1 className="header-heading">Email &#38; SMS Marketing for Clothing Brands</h1>
-                        <p className="header-description">
+                    <div className="header-content | text-center">
+                        <h1 className="header-heading | ff-secondary display-extra-large display-small__mobile-only">Email &#38; SMS Marketing for Clothing Brands</h1>
+                        <p className="header-description | body-extra-large body-normal__mobile-only">
                             Our goal is top at the heart of creativity
                             services industry as a digital creator. In has a after comment.</p>
-                        <div className="header-button__wrapper">
-                            <button className="primary-button">
-                                <a href="#about">Meet Our CEO</a>
-                            </button>
-                            <button className="neutral-button">
-                                <a href="#contact">Contact Us</a>
-                            </button>
+                        <div className="header-button__wrapper | mx-auto">
+                            <a className="button-primary button-small" href="#about">Meet Our CEO</a>
+                            <a className="button-outline button-small" href="#contact">
+                                <img src={process.env.PUBLIC_URL + "/images/play-circle.svg"} alt="" />
+                                Contact Us
+                            </a>
                         </div>
                     </div>
                     <div className="hero-wrapper">

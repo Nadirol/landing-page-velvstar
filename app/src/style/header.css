@@ -1,0 +1,136 @@
+.primary-header {
+    position: relative;
+
+    height: 100vh;
+
+    padding-top: 2.5rem;
+
+    background-image: url(../../public/images/Hero.png);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+
+    overflow: hidden;
+}
+
+.primary-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand-logo {
+    max-height: 5.5rem;
+}
+
+.nav-menu {
+    align-items: center;
+
+    width: 100%;
+}
+
+.nav-menu[data-visible] {
+    display: flex;
+}
+
+.nav-link {
+    color: var(--clr-neutral-900);
+}
+
+.nav-menu .button-primary {
+    width: 10rem;
+}
+
+.header-content {
+    margin-top: 4rem;
+}
+
+.hero-wrapper {
+    display: none;
+}
+
+.header-button__wrapper {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.header-button__wrapper a {
+    width: 10.25rem;
+}
+
+.header-button__wrapper .button-outline {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+@media (max-width: 47em) {
+    .primary-header {
+        background-size: cover;
+    }
+
+    .brand-logo {
+        max-height: 2.25rem;
+    }
+
+    .mobile-nav-toggle {
+        position: fixed;
+        top: 2.875rem;
+        right: 1.25rem;
+
+        width: 1.5rem;
+        aspect-ratio: 1;
+
+        background-image: url(../../public/images/hamburger.svg);
+        background-repeat: no-repeat;
+        background-color: transparent;
+
+        border: 0;
+    }
+
+    .nav-menu {
+        display: none;
+    }
+
+    .header-content {
+        margin-top: 4rem;
+    }
+
+    .header-heading {
+        margin-bottom: 1.5rem;
+    }
+
+    .header-description {
+        margin-bottom: 2.5rem;
+    }
+}
+
+@media (min-width: 47em) {
+    .nav-menu {
+        display: flex;
+    }
+
+    .nav-list {
+        display: flex;
+        gap: 3.75rem;
+
+        margin-inline: auto;
+    }
+    
+    .header-content {
+        margin-top: 6.5rem;
+    }
+
+    .header-heading {
+        margin-bottom: 2.5rem;
+    }
+
+    .header-description {
+        margin-bottom: 3.75rem;
+    }
+
+    .header-button__wrapper {
+        gap: 2.5rem;
+    }
+}
