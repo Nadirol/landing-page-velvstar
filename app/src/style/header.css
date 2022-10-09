@@ -20,7 +20,7 @@
 }
 
 .brand-logo {
-    max-height: 5.5rem;
+    height: 2.25rem;
 }
 
 .nav-menu {
@@ -43,6 +43,7 @@
 
 .header-content {
     margin-top: 4rem;
+    position: relative;
 }
 
 .hero-wrapper {
@@ -68,10 +69,6 @@
 @media (max-width: 47em) {
     .primary-header {
         background-size: cover;
-    }
-
-    .brand-logo {
-        max-height: 2.25rem;
     }
 
     .mobile-nav-toggle {
@@ -107,6 +104,12 @@
 }
 
 @media (min-width: 47em) {
+    
+    .brand-logo {
+        width: 18.75rem;
+        height: 5.5rem;
+    }
+
     .nav-menu {
         display: flex;
     }
@@ -132,5 +135,35 @@
 
     .header-button__wrapper {
         gap: 2.5rem;
+    }
+
+    .hero-wrapper {
+        display: initial;
+    }
+
+    .hero-image {
+        position: absolute;
+    }
+
+    #hero-email {
+        top: 420px;
+        left: min(107px,6vw);
+        transform: rotate(-15deg);
+    }
+
+    #hero-group {
+        top: 398px;
+        right: min(120px,8vw);;
+    }
+
+    #hero-vector {
+        bottom: 25px;
+        left: -60px;
+    }
+
+    #hero-message {
+        bottom: 95px;
+        right: 135px;
+        transform: rotate(15deg);
     }
 }

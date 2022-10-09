@@ -13,7 +13,7 @@ const cardData = [
     },
     {
         id: '2',
-        logo: process.env.PUBLIC_URL + "/images/client-logo-1.png",
+        logo: process.env.PUBLIC_URL + "/images/client-logo-2.png",
         brandName: "Punjabi Corp.",
         duration: "1 year",
         revenueRate: "12%",
@@ -25,7 +25,7 @@ const cardData = [
     },
     {
         id: '3',
-        logo: process.env.PUBLIC_URL + "/images/client-logo-1.png",
+        logo: process.env.PUBLIC_URL + "/images/client-logo-3.png",
         brandName: "Derke Org.",
         duration: "6 months",
         revenueRate: "27%",
