@@ -1,5 +1,4 @@
 import React from "react";
-import ToSlide from "../toSlide";
 
 function Dot(props) {
     return (

@@ -14,19 +14,16 @@ function Main() {
                 />            
     })
 
-    const sliderElement = document.querySelector('.slider');
-
     function previousSlide() {
-        sliderElement.scrollBy({
+        document.querySelector('.slider').scrollBy({
             top: 0,
             left: -10,
             behavior : "smooth"
         });
-
     }
 
     function nextSlide() {
-        sliderElement.scrollBy({
+        document.querySelector('.slider').scrollBy({
             top: 0,
             left: 10,
             behavior : "smooth"
@@ -35,6 +32,7 @@ function Main() {
     }
 
     function ToSlide(slideIndex) {
+        console.log('working')
         if (slideIndex === 1) {
             document.querySelector('.slider').scrollTo(
                 {
@@ -49,7 +47,7 @@ function Main() {
             document.querySelector('.slider').scrollTo(
                 {
                     top: 0,
-                    left: slideIndex / document.querySelectorAll('.slider-card__wrapper').length * sliderElement.scrollWidth
+                    left: slideIndex / document.querySelectorAll('.slider-card__wrapper').length * document.querySelector('.slider').scrollWidth
                     ,
                     behavior: "smooth"
                 }
@@ -59,24 +57,23 @@ function Main() {
     }
 
     function detectSlide() {
-        const currentScrollPosition = sliderElement.scrollLeft
+        const currentScrollPosition = document.querySelector('.slider').scrollLeft
 
         if (currentScrollPosition === 0) {
             setCurrentIndex(1) 
         } 
-        else if (Math.abs(sliderElement.scrollWidth - sliderElement.scrollLeft - sliderElement.clientWidth) <= 3.0) {
+        else if (Math.abs(document.querySelector('.slider').scrollWidth - document.querySelector('.slider').scrollLeft - document.querySelector('.slider').clientWidth) <= 3.0) {
             setCurrentIndex(cardElements.length) 
         }
         else {
-            
-            if (sliderElement.clientWidth < 700) {
-                if (Math.floor(currentScrollPosition / sliderElement.clientWidth) + 1 > 1) {
-                    setCurrentIndex(Math.floor(currentScrollPosition / sliderElement.clientWidth) + 1)
+            if (document.querySelector('.slider').clientWidth < 700) {
+                if (Math.floor(currentScrollPosition / document.querySelector('.slider').clientWidth) + 1 > 1) {
+                    setCurrentIndex(Math.floor(currentScrollPosition / document.querySelector('.slider').clientWidth) + 1)
                 }
             } 
-            else if (Math.round(sliderElement.clientWidth / currentScrollPosition) > 1) {
-                if (Math.round(sliderElement.clientWidth / currentScrollPosition) < cardElements.length) {
-                    setCurrentIndex(Math.round(sliderElement.clientWidth / currentScrollPosition))
+            else if (Math.round(document.querySelector('.slider').clientWidth / currentScrollPosition) > 1) {
+                if (Math.round(document.querySelector('.slider').clientWidth / currentScrollPosition) < cardElements.length) {
+                    setCurrentIndex(Math.round(document.querySelector('.slider').clientWidth / currentScrollPosition))
                 }
             }
         }

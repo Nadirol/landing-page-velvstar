@@ -154,11 +154,6 @@ section {
     .slider-button img {
         width: 2.5rem;
         aspect-ratio: 1;
-
-    }
-
-    .dot-track {
-        /* display: none; */
     }
 }
 
