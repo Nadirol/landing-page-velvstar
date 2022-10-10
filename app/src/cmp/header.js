@@ -6,7 +6,7 @@ function Header() {
         <header className="primary-header">
                 <div className="container">
                     <nav className="primary-navigation">
-                        <button className="mobile-nav-toggle | mobile-only" aria-controls="primary-navigation__menu" aria-expanded="false">
+                        <button className="mobile-nav-toggle | mobile-only z-tier-4" aria-controls="primary-navigation__menu" aria-expanded="false">
                             <span className="visually-hidden">Menu</span>
                         </button>
                         <a href="index.html">

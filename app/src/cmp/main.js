@@ -3,8 +3,6 @@ import '../style/main.css'
 import Card from "./card";
 import cardData from "../data/cardData"
 
-import activeDot from "../activeDot";
-
 function Main() {
 
     const [currentIndex, setCurrentIndex] = React.useState(1);
@@ -24,10 +22,7 @@ function Main() {
             left: -10,
             behavior : "smooth"
         });
-        const newIndex = currentIndex === 1 ? 1 : currentIndex - 1;
-        setCurrentIndex(newIndex);
 
-        // activeDot(currentIndex);
     }
 
     function nextSlide() {
@@ -36,20 +31,15 @@ function Main() {
             left: 10,
             behavior : "smooth"
         });
-        const newIndex = currentIndex === cardElements.length ? cardElements.length : currentIndex + 1;
-        setCurrentIndex(newIndex)
 
-        // activeDot(newIndex);
     }
 
     function ToSlide(slideIndex) {
-        // activeDot(slideIndex)
-    
         if (slideIndex === 1) {
             document.querySelector('.slider').scrollTo(
                 {
                     top: 0,
-                    left: 0 / document.querySelectorAll('.slider-card__wrapper').length * document.querySelector('.slider').offsetWidth
+                    left: 0
                     ,
                     behavior: "smooth"
                 }
@@ -59,20 +49,42 @@ function Main() {
             document.querySelector('.slider').scrollTo(
                 {
                     top: 0,
-                    left: slideIndex / document.querySelectorAll('.slider-card__wrapper').length * document.querySelector('.slider').offsetWidth
+                    left: slideIndex / document.querySelectorAll('.slider-card__wrapper').length * sliderElement.scrollWidth
                     ,
                     behavior: "smooth"
                 }
             )
         }
-        
-        setCurrentIndex(slideIndex)
+
+    }
+
+    function detectSlide() {
+        const currentScrollPosition = sliderElement.scrollLeft
+
+        if (currentScrollPosition === 0) {
+            setCurrentIndex(1) 
+        } 
+        else if (Math.abs(sliderElement.scrollWidth - sliderElement.scrollLeft - sliderElement.clientWidth) <= 3.0) {
+            setCurrentIndex(cardElements.length) 
+        }
+        else {
+            
+            if (sliderElement.clientWidth < 700) {
+                if (Math.floor(currentScrollPosition / sliderElement.clientWidth) + 1 > 1) {
+                    setCurrentIndex(Math.floor(currentScrollPosition / sliderElement.clientWidth) + 1)
+                }
+            } 
+            else if (Math.round(sliderElement.clientWidth / currentScrollPosition) > 1) {
+                if (Math.round(sliderElement.clientWidth / currentScrollPosition) < cardElements.length) {
+                    setCurrentIndex(Math.round(sliderElement.clientWidth / currentScrollPosition))
+                }
+            }
+        }
     }
 
     const dotElements = cardData.map((card, index) => {
         return (
-            <div className={index + 1 === currentIndex ? 'dot active' : 'dot'} id={index} onClick={() => ToSlide(Number(card.id))}>
-    
+            <div key={card.id} className={index + 1 === currentIndex ? 'dot active' : 'dot'} id={index} onClick={() => ToSlide(Number(card.id))}>
             </div>
         )      
     })
@@ -117,7 +129,7 @@ function Main() {
                     <div className="results-container">
                         <div className="slider-wrapper">
                             <h1 className="slider-heading | heading-large heading-small__mobile-only">Client Results</h1>
-                            <ul className="slider">
+                            <ul className="slider" onScroll={detectSlide}>
                                 {cardElements}
                             </ul>
                         </div>
