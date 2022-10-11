@@ -141,16 +141,16 @@ function Main() {
                 </section>
                 <section id="about">
                     <div className="container">
+                        <h1 className="about-heading | text-center heading-hero heading-small__mobile-only">Meet Our CEO</h1>
                         <div className="about-wrapper">
-                            <h1 className="about-heading">Meet Our CEO</h1>
                             <div className="details-wrapper">
-                                <div className="avatar-wrapper">
-                                    <img src={process.env.PUBLIC_URL + "/images/ceo-avt.png"} alt="" className="avatar"/>
-                                    <h2 className="name">Davud Gurda</h2>
-                                    <h4 className="profession">CEO &#38; Founder of Velvstar</h4>
+                                <div className="avatar-wrapper | text-center">
+                                    <img src={process.env.PUBLIC_URL + "/images/intersect.png"} alt="" className="avatar | mx-auto"/>
+                                    <h2 className="name | heading-small title-extra-large__mobile-only">Davud Gurda</h2>
+                                    <h4 className="profession | body-extra-large body-normal__mobile-only">CEO &#38; Founder of Velvstar</h4>
                                 </div>
                             </div>
-                            <div className="details">
+                            <div className="details | body-extra-large body-normal__mobile-only flow">
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet porttitor iaculis commodo parturient et eu. Semper vivamus vulputate sed tellus ultricies nullam et. Eget amet, neque morbi in proin tincidunt tortor, fames sed. Est feugiat ipsum magna in. </p>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet porttitor iaculis commodo parturient et eu. Semper vivamus vulputate sed tellus ultricies nullam et. Eget amet, neque morbi in proin tincidunt tortor, fames sed. Est feugiat ipsum magna in. </p>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet porttitor iaculis commodo parturient et eu. Semper vivamus vulputate sed tellus ultricies nullam et. Eget amet, neque morbi in proin tincidunt tortor, fames sed. Est feugiat ipsum magna in. </p>
@@ -160,27 +160,30 @@ function Main() {
                 </section>
                 <section id="contact">
                     <div className="container">
-                        <div className="form-wrapper">
-                            <h1 className="form-heading">Ready to work with an agency that actually delivers? Get in touch!</h1>
-                            <form className="primary-form" action="#">
+                        <div className="form-wrapper | text-center">
+                            <h1 className="form-heading | heading-hero">Ready to work with an agency that actually delivers? Get in touch!</h1>
+                            <form className="primary-form | mx-auto" action="#" id="contact">
                                 <div className="input-box">
                                     <h2 className="input-title">Full Name</h2>
+                                    <img className="input-icon" src={process.env.PUBLIC_URL + "/images/user-icon.svg"} alt="" />
                                     <input type="text" placeholder="Your Full Name" required/>
                                 </div>
                                 <div className="input-box">
                                     <h2 className="input-title">Email Address</h2>
+                                    <img className="input-icon" src={process.env.PUBLIC_URL + "/images/mail-icon.svg"} alt="" />
                                     <input type="email" placeholder="Email Address" required/>
                                 </div>
                                 <div className="input-box">
                                     <h2 className="input-title">Phone Number</h2>
+                                    <img className="input-icon" src={process.env.PUBLIC_URL + "/images/mail-icon.svg"} alt="" />
                                     <input type="text" placeholder="Phone Number" required/>
                                 </div>
-                                <div className="input-box">
+                                <div className="input-box message">
                                     <h2 className="input-title">Message</h2>
-                                    <input type="text" placeholder="Your Message" required/>
+                                    <textarea name="Message" form="contact" placeholder="Your Message"></textarea>
                                 </div>
-                                <button class="button">Send Message
-                                    <input type="submit" value="Register"/>
+                                <button className="submit-button">
+                                    <input className="button-primary" type="submit" value="Send Message"/>
                                 </button>
                             </form>
                         </div>
