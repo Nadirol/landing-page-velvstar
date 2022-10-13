@@ -158,34 +158,37 @@ function Main() {
                         </div>
                     </div>
                 </section>
-                <section id="contact">
+                <section id="contact" className="contact">
                     <div className="container">
-                        <div className="form-wrapper | text-center">
-                            <h1 className="form-heading | heading-hero">Ready to work with an agency that actually delivers? Get in touch!</h1>
-                            <form className="primary-form | mx-auto" action="#" id="contact">
-                                <div className="input-box">
-                                    <h2 className="input-title">Full Name</h2>
-                                    <img className="input-icon" src={process.env.PUBLIC_URL + "/images/user-icon.svg"} alt="" />
-                                    <input type="text" placeholder="Your Full Name" required/>
-                                </div>
-                                <div className="input-box">
-                                    <h2 className="input-title">Email Address</h2>
-                                    <img className="input-icon" src={process.env.PUBLIC_URL + "/images/mail-icon.svg"} alt="" />
-                                    <input type="email" placeholder="Email Address" required/>
-                                </div>
-                                <div className="input-box">
-                                    <h2 className="input-title">Phone Number</h2>
-                                    <img className="input-icon" src={process.env.PUBLIC_URL + "/images/mail-icon.svg"} alt="" />
-                                    <input type="text" placeholder="Phone Number" required/>
-                                </div>
-                                <div className="input-box message">
-                                    <h2 className="input-title">Message</h2>
-                                    <textarea name="Message" form="contact" placeholder="Your Message"></textarea>
-                                </div>
-                                <button className="submit-button">
-                                    <input className="button-primary" type="submit" value="Send Message"/>
-                                </button>
-                            </form>
+                        <div className="contact-wrapper">
+                            <div className="form-wrapper | text-center">
+                                <h1 className="form-heading | heading-hero">Ready to work with an agency that actually delivers? Get in touch!</h1>
+                                <form className="primary-form | mx-auto" action="#" id="contact">
+                                    <div className="input-box">
+                                        <h2 className="input-title">Full Name</h2>
+                                        <img className="input-icon" src={process.env.PUBLIC_URL + "/images/user-icon.svg"} alt="" />
+                                        <input type="text" placeholder="Your Full Name" required  minlength='3'/>
+                                    </div>
+                                    <div className="input-box email">
+                                        <h2 className="input-title">Email Address</h2>
+                                        <img className="input-icon" src={process.env.PUBLIC_URL + "/images/mail-icon.svg"} alt="" />
+                                        <input type="email" placeholder="Email Address" required/>
+                                    {/*  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" */}
+                                    </div>
+                                    <div className="input-box">
+                                        <h2 className="input-title">Phone Number</h2>
+                                        <img className="input-icon" src={process.env.PUBLIC_URL + "/images/mail-icon.svg"} alt="" />
+                                        <input type="text" placeholder="Phone Number" required/>
+                                    </div>
+                                    <div className="input-box message">
+                                        <h2 className="input-title">Message</h2>
+                                        <textarea name="Message" form="contact" placeholder="Your Message"></textarea>
+                                    </div>
+                                    <button className="submit-button">
+                                        <input className="button-primary" type="submit" value="Send Message"/>
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </section>

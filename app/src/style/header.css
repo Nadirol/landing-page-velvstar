@@ -64,6 +64,7 @@
     display: flex;
     justify-content: center;
     gap: 0.5rem;
+    color: var(--clr-neutral-900);
 }
 
 @media (max-width: 47em) {
