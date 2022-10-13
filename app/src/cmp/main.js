@@ -1,18 +1,10 @@
 import React from "react";
 import '../style/main.css'
-import Card from "./card";
 import cardData from "../data/cardData"
 
 function Main() {
 
     const [currentIndex, setCurrentIndex] = React.useState(1);
-
-    const cardElements = cardData.map(card => {
-        return <Card 
-                    key={card.id}
-                    {...card}
-                />            
-    })
 
     function previousSlide() {
         document.querySelector('.slider').scrollBy({
@@ -86,8 +78,113 @@ function Main() {
         )      
     })
 
-    return (
+    const cardElements = cardData.map((props, index) => {
+        return (
+            <li key={props.id} className="slider-card__wrapper | flow">
+                <div className="card-top">
+                    <div className="brand-info">
+                        <img src={props.logo} alt="" className="card-logo"/>
+                        <div>
+                            <h1 className="card-brand-name | title-extra-large title-large__mobile-only">{props.brandName}</h1>
+                            <h3 className="card-duration | title-normal__semi-bold title-small__semi-bold__mobile-only">{props.duration} campaign</h3>
+                        </div>
+                    </div>
+                    <span className="card-revenue-rate | title-large title-normal__semi-bold__mobile-only">{props.revenueRate} Revenue</span>
+                </div>
+                <div className="card-analytics | flow">
+                    <div className="row-1">
+                        <div className="analytics-item total">
+                            <h1 className="analytics-title | title-large title-small__semi-bold__mobile-only">Total Store Revenue</h1>
+                            <span className="analytics-number | heading-large title-extra-large__mobile-only">${props.total}</span>
+                        </div>
+                        <div className="analytics-item via-email">
+                            <h1 className="analytics-title | title-large title-small__semi-bold__mobile-only">Via Email Marketing</h1>
+                            <span className="analytics-number | heading-large title-extra-large__mobile-only">${props.viaEmail}</span>
+                        </div> 
+                    </div>
+                    <div className="row-2">
+                        <div className="analytics-item flows">
+                            <h1 className="analytics-title | title-normal__semi-bold title-extra-small__semi-bold__mobile-only">Flows</h1>
+                            <span className="analytics-number | heading-small title-extra-large__mobile-only">${props.flows}</span>
+                        </div>                                
+                        <div className="analytics-item campaigns">
+                            <h1 className="analytics-title | title-normal__semi-bold title-extra-small__semi-bold__mobile-only">Campaigns</h1>
+                            <span className="analytics-number | heading-small title-extra-large__mobile-only">${props.campaign}</span>
+                        </div>                                
+                        <div className="analytics-item average">
+                            <h1 className="analytics-title | title-normal__semi-bold title-extra-small__semi-bold__mobile-only">$/Recipient</h1>
+                            <span className="analytics-number | heading-small title-extra-large__mobile-only">${props.average}</span>
+                        </div>
+                    </div>
+                </div>
+                <button className="link-button | button-text button-small" onClick={() => openPopUp(index)}>View Full Report &#8594;</button>
+            </li>
+        )      
+    })
 
+    const [popUpCard, setPopUpCard] = React.useState(0)
+
+    const [popUpState, setPopUpState] = React.useState('off')
+
+    function openPopUp(cardIndex) {
+        setPopUpState('on');
+        setPopUpCard(cardIndex)
+    }
+    
+    function closePopUp() {
+        setPopUpState('off')
+    }
+
+    const popUpElement = (
+        <section className="pop-up |  z-tier-4" data-display={popUpState}>
+            <div className="container">
+                <div className="pop-up__wrapper | flow">
+                    <div className="card-top">
+                        <div className="brand-info">
+                            <img src={cardData[popUpCard].logo} alt="" className="card-logo"/>
+                            <div>
+                                <h1 className="card-brand-name | title-extra-large title-large__mobile-only">{cardData[popUpCard].brandName}</h1>
+                                <h3 className="card-duration | title-normal__semi-bold title-small__semi-bold__mobile-only">{cardData[popUpCard].duration} campaign</h3>
+                            </div>
+                        </div>
+                        <span className="card-revenue-rate | title-large title-normal__semi-bold__mobile-only">{cardData[popUpCard].revenueRate} Revenue</span>
+                    </div>
+                    <div className="card-analytics | flow">
+                        <div className="row-1">
+                            <div className="analytics-item total">
+                                <h1 className="analytics-title | title-large title-small__semi-bold__mobile-only">Total Store Revenue</h1>
+                                <span className="analytics-number | heading-large title-extra-large__mobile-only">${cardData[popUpCard].total}</span>
+                            </div>
+                            <div className="analytics-item via-email">
+                                <h1 className="analytics-title | title-large title-small__semi-bold__mobile-only">Via Email Marketing</h1>
+                                <span className="analytics-number | heading-large title-extra-large__mobile-only">${cardData[popUpCard].viaEmail}</span>
+                            </div> 
+                        </div>
+                        <div className="row-2">
+                            <div className="analytics-item flows">
+                                <h1 className="analytics-title | title-normal__semi-bold title-extra-small__semi-bold__mobile-only">Flows</h1>
+                                <span className="analytics-number | heading-small title-extra-large__mobile-only">${cardData[popUpCard].flows}</span>
+                            </div>                                
+                            <div className="analytics-item campaigns">
+                                <h1 className="analytics-title | title-normal__semi-bold title-extra-small__semi-bold__mobile-only">Campaigns</h1>
+                                <span className="analytics-number | heading-small title-extra-large__mobile-only">${cardData[popUpCard].campaign}</span>
+                            </div>                                
+                            <div className="analytics-item average">
+                                <h1 className="analytics-title | title-normal__semi-bold title-extra-small__semi-bold__mobile-only">$/Recipient</h1>
+                                <span className="analytics-number | heading-small title-extra-large__mobile-only">${cardData[popUpCard].average}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="pop-up__img-wrapper">
+                        <img src={process.env.PUBLIC_URL + "/images/statistic-pop-up.png"} alt="" />
+                    </div>
+                    <img className="close-button" src={process.env.PUBLIC_URL + "/images/x.svg"} alt="" onClick={closePopUp}/>
+                </div>
+            </div>
+        </section>
+    )
+
+    return (
             <main className="main-content__wrapper">
                 <section id="services">
                     <div className="container">
@@ -139,6 +236,7 @@ function Main() {
                         </div>
                     </div>
                 </section>
+                {popUpElement}
                 <section id="about">
                     <div className="container">
                         <h1 className="about-heading | text-center heading-hero heading-small__mobile-only">Meet Our CEO</h1>
@@ -167,7 +265,7 @@ function Main() {
                                     <div className="input-box">
                                         <h2 className="input-title">Full Name</h2>
                                         <img className="input-icon" src={process.env.PUBLIC_URL + "/images/user-icon.svg"} alt="" />
-                                        <input type="text" placeholder="Your Full Name" required  minlength='3'/>
+                                        <input type="text" placeholder="Your Full Name" required  minLength='3'/>
                                     </div>
                                     <div className="input-box email">
                                         <h2 className="input-title">Email Address</h2>
